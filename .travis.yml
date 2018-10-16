@@ -48,3 +48,8 @@ jobs:
         github_token: $GITHUB_TOKEN
         on:
           branch: master
+    - stage: deploy to npm
+      if: tag IS present
+      script:
+        - yarn build
+        - echo "Deploying to github pages..."
